@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".news.ArticleFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Article" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere, mi sit amet posuere posuere, arcu tortor imperdiet turpis, id ullamcorper diam massa ac leo. Duis auctor in velit eu pellentesque. Praesent rutrum mollis augue vel commodo. Aenean sagittis ante id tellus ornare, quis bibendum arcu aliquam." />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

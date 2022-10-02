@@ -1,0 +1,1 @@
+Demonstration of android navigation with the [coordinator pattern](https://hannesdorfmann.com/android/coordinators-android/) from Hannes Dorfmann.
