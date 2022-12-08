@@ -1,8 +1,7 @@
 package eti.lucas.coordinatordemo.core
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class App : Application() {
-
-    val viewModelFactory by lazy { AppViewModelFactory(this) }
-}
+@HiltAndroidApp
+class App : Application()

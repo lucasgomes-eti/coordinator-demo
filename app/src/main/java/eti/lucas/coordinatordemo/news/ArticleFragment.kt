@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import eti.lucas.coordinatordemo.R
 import eti.lucas.coordinatordemo.core.FragmentWithParams
 import kotlin.properties.Delegates.notNull
@@ -29,24 +30,13 @@ class ArticleFragment : Fragment(), FragmentWithParams {
     companion object {
         @JvmStatic
         fun newInstance(articleId: Int) = ArticleFragment().apply {
-            arguments = Bundle().apply {
-                putInt(ARG_ARTICLE_ID, articleId)
-            }
+            arguments = bundleOf(ARG_ARTICLE_ID to articleId)
         }
-        private const val ARG_ARTICLE_ID = "article_id"
+
+        const val ARG_ARTICLE_ID = "article_id"
     }
 
-    override fun newInstance(vararg params: Any): Fragment {
-       if (params.size == 1) {
-           val articleId = params[0]
-           if (articleId is Int) {
-               return ArticleFragment().apply {
-                   arguments = Bundle().apply {
-                       putInt(ARG_ARTICLE_ID, articleId)
-                   }
-               }
-           }
-       }
-        throw InstantiationException("Invalid params for ${this::class.java.name}, expected = articleId: Int, actual = $params")
+    override fun newInstance(params: Bundle): Fragment {
+        return ArticleFragment().apply { arguments = params }
     }
 }

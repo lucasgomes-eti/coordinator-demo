@@ -20,7 +20,7 @@ class UserManager(private val sharedPreferences: SharedPreferences) {
     val currentUser: Observable<User> = userRelay
 
     init {
-        usernamePasswordMap["Lucas"] = "123"
+        usernamePasswordMap["su"] = "123"
         val current = sharedPreferences.getString(KEY_CURRENT_USER, null)
         userRelay.accept(
             if (current != null)
@@ -50,7 +50,7 @@ class UserManager(private val sharedPreferences: SharedPreferences) {
         userRelay.accept(NotAuthenticated)
     }
 
-    fun markOnboardingComplete() {
+    fun markOnBoardingComplete() {
         sharedPreferences.edit().putBoolean(KEY_ONBOARDING_COMPLETED, true).apply()
     }
 

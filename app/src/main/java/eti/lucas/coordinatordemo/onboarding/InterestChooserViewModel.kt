@@ -1,20 +1,18 @@
 package eti.lucas.coordinatordemo.onboarding
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import eti.lucas.coordinatordemo.core.UserManager
+import javax.inject.Inject
 
-class InterestChooserViewModel(
+@HiltViewModel
+class InterestChooserViewModel @Inject constructor(
     private val userManager: UserManager,
-    private var onNextClicked: (() -> Unit)?
+    private val onboardingCoordinator: OnBoardingCoordinator
 ) : ViewModel() {
 
     fun onNextClicked() {
-        userManager.markOnboardingComplete()
-        onNextClicked!!()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        onNextClicked = null
+        userManager.markOnBoardingComplete()
+        onboardingCoordinator.onPersonalInterestsSelected()
     }
 }

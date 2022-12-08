@@ -6,14 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import eti.lucas.coordinatordemo.databinding.FragmentLoginBinding
-import eti.lucas.coordinatordemo.getViewModel
-import eti.lucas.coordinatordemo.subscribe
+import eti.lucas.coordinatordemo.core.subscribe
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +34,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val viewModel: LoginViewModel = getViewModel()
 
         with(binding) {
             btnNext.setOnClickListener {

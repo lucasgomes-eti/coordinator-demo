@@ -1,5 +1,6 @@
 package eti.lucas.coordinatordemo.core
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import eti.lucas.coordinatordemo.R
@@ -20,5 +21,5 @@ class Navigator {
 
     infix fun <F : Fragment> push(fragment: () -> F) = replace(fragment(), true)
 
-    fun <F : FragmentWithParams> push(vararg params: Any, fragment: () -> F) = replace(fragment().newInstance(params), true)
+    fun <F : FragmentWithParams> push(params: Bundle, fragment: () -> F) = replace(fragment().newInstance(params), true)
 }

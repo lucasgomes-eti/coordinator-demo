@@ -2,7 +2,7 @@ package eti.lucas.coordinatordemo.login
 
 import eti.lucas.coordinatordemo.core.Navigator
 
-class LoginFlowCoordinator(private val navigator: Navigator) {
+class LoginCoordinator(private val navigator: Navigator) {
 
     fun start() = navigator replaceWith ::LoginFragment
 
